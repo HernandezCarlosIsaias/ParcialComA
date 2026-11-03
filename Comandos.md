@@ -24,10 +24,10 @@ dotnet ef database update
 
 
 using Microsoft.EntityFrameworkCore;
-using ApiAuto.Entities;
+using Parcial.Entities;
 
 
-namespace ApiAuto.Data;
+namespace Parcial.Data;
 
 public class AppDbContext : DbContext
 {
@@ -57,12 +57,11 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.5
 
 
 
-builder.Services.AddScoped<AutoService>();
-builder.Services.AddScoped<AutoRepository>();
+builder.Services.AddScoped<CelularService>();
+builder.Services.AddScoped<CelularRepository>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
-
 
 
 
